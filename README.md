@@ -131,9 +131,9 @@ To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HG
 ## Viewing log files
 
 Once you are connected to the HGV virtual machine, system and web server logs can be viewed in
-```/var/log``` . You may view the contents of the system log by typing ```sudo less /var/log/syslog```.
+```/var/log``` . You may view the contents of the system log by typing ```sudo less /var/log/syslog``` .
 
-Web server logs are stored in ```/var/log/nginx```, with separate log files for every site. Each site has several log files associated with it:
+Web server logs are stored in ```/var/log/nginx``` , with separate log files for every site. Each site has several log files associated with it:
 
 ```[site].wpengine.dev.access.log```
 
