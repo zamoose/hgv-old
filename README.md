@@ -1,65 +1,53 @@
-## Mercury Vagrant (HGV)
+# Mercury Vagrant (HGV) #
 
 This project is intended as a tool for allowing WP Engine users to test their code prior to actual deployment on WP Engine "Mercury" infrastructure. This is not intended as an exact replica of WP Engine's infrastructure, but is instead a "simulator" of the conditions and software stack on WPE's Mercury platform, allowing you to develop and test your code with an end goal of stability and compatibility with Mercury.
 
 Mercury differs from standard WordPress hosting in several ways, chief among which is the use of HHVM to serve all PHP code. To quote [HHVM's Website](http://hhvm.com):
-HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
 
-## What you get
+> HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
 
-## Software stack
+## What you get ##
 
-Once Vagrant is done provisioning the VM, you will have a box running Ubuntu 14.04 (aka Trusty Tahr) 
+### Software stack ###
 
-###containing:
-[Percona DB](http://percona.com)
+Once Vagrant is done provisioning the VM, you will have a box running Ubuntu 14.04 (aka Trusty Tahr) containing:
 
-[PHP-FPM](http://php-fpm.org)
+* [Percona DB](http://percona.com)
+* [PHP-FPM](http://php-fpm.org)
+* [HHVM](http://hhvm.com)
+* [Nginx](http://nginx.com)
+* [Varnish](http://varnish-cache.org)
+* [Memcached](http://memcached.org)
 
-[HHVM](http://hhvm.com)
-
-[Nginx](http://nginx.com)
-
-[Varnish](http://varnish-cache.org)
-
-[Memcached](http://memcached.org)
-
-### Prerequisites
+## Prerequisites ##
 
 1. Install [Git](http://git-scm.org).
-Windows users: Be sure to add the Git executables to your path (See, e.g. this guide, under "Prerequisites")
+ * Windows users: Be sure to add the Git executables to your path (See, e.g. this guide, under "Prerequisites")
 2. Install virtual machine software ([VMware](http://vmware.com) or [VirtualBox](http://virtualbox.org) are recommended).
 3. Install [Vagrant](http://vagrantup.com)
-4. Optional, but highly recommended: Install the Vagrant Hostsupdater plugin Short version: vagrant plugin install [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater) 
-5. Suggestion: Development workstation/laptop should have at least 8GB of RAM. hgv needs to allocate 1GB of RAM in order to run. (Users with <=4GB of RAM [e.g. base-model MacBook Airs] have seen overall system slowness while running this Vagrant box and much of anything else.)
+4. **Optional, but highly recommended:** Install the [Vagrant Hostsupdater plugin](https://github.com/cogitatio/vagrant-hostsupdater)
+ * Short version: `vagrant plugin install vagrant-hostsupdater` 
+5. **Suggestion:** Development workstation/laptop should have at least 8GB of RAM. hgv needs to allocate 1GB of RAM in order to run. (Users with <=4GB of RAM [e.g. base-model MacBook Airs] have seen overall system slowness while running this Vagrant box and much of anything else.)
 6. Windows users should be certain that their BIOS' virtualization settings are enabled. (Intel owners should enable VT-x while AMD owners should enable AMD-v. See [here](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) for a better explanation.)
-7. Recommendation: This Vagrant box uses a 64 bit operating system (because HHVM requires a 64 bit OS), so we highly recommend that it only be run on 64 bit machines running 64 bit operating systems. (Most, if not all desktops and laptops sold in the last few years are running on 64 bit processors. Some may not be running 64 bit operating systems, however. Please check your system's documentation.)
+7. **Recommendation:** This Vagrant box uses a 64 bit operating system (because HHVM requires a 64 bit OS), so we highly recommend that it only be run on 64 bit machines running 64 bit operating systems. (Most, if not all desktops and laptops sold in the last few years are running on 64 bit processors. Some may not be running 64 bit operating systems, however. Please check your system's documentation.)
 
-## Installation
-1. ```git clone --recursive https://github.com/wpengine/hgv.git``` to clone the latest version
-of the tool.
-2. Change into the directory ```hgv```.
-3. Run ```vagrant up```
+## Installation ##
+1. `git clone --recursive https://github.com/wpengine/hgv.git` to clone the latest version of the tool.
+2. Change into the directory `hgv`.
+3. Run `vagrant up`
 
-## Next Steps
-Once the VM is done provisioning, direct your browser to http://wpengine.dev
-You will receive fuller instructions on the use of this Vagrant environment there.
+## Next Steps ##
+Once the VM is done provisioning, direct your browser to [http://wpengine.dev](http://wpengine.dev) You will receive fuller instructions on the use of this Vagrant environment there.
 
-## Once Installed These Local URL's / SITES Contain Great Documentation
+### Once Installed These Local URL's / SITES Contain Great Documentation ###
+No really, make sure you go to these to check them out as you work with HGV. HGV automatically creates four sites and adds host file entries for them (if you installed the `vagrant-hostsupdater` plugin, that is):
 
-HGV automatically creates four sites and adds host file entries for them (if you installed the ```vagrant-hostsupdater``` plugin, that is):
+* wpengine.dev -- General documentation and links for all of the tools
+* hhvm.wpengine.dev -- A new WordPress installation running on HHVM
+* php.wpengine.dev -- A new WordPress installation running on PHP-FPM (PHP 5.5)
+* admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
 
-No really, make sure you go to these to check them out as you work with HGV.
-
-wpengine.dev -- General documentation and links for all of the tools
-
-hhvm.wpengine.dev -- A new WordPress installation running on HHVM
-
-php.wpengine.dev -- A new WordPress installation running on PHP-FPM (PHP 5.5)
-
-admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
-
-If you did not install the ```vagrant-hostsupdater``` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
+If you did not install the `vagrant-hostsupdater` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
 
 ```192.168.150.20 wpengine.dev```
 
@@ -122,18 +110,18 @@ phpMyAdmin is available at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/p
 
 phpMemcachedAdmin is available at [admin.wpengine.dev/phpmemcachedadmin/](admin.wpengine.dev/phpmemcachedadmin/). You may use this tool to check on the status of the WordPress object [cache](http://codex.wordpress.org/Class_Reference/WP_Object_Cache).
 
-# Development and debugging
+## Development and debugging ##
 
-## Command line (CLI) access
+### Command line (CLI) access ###
 
 To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HGV directory. This will place you in the CLI on the VM.
 
-## Viewing log files
+### Viewing log files ###
 
 Once you are connected to the HGV virtual machine, system and web server logs can be viewed in
-```/var/log``` . You may view the contents of the system log by typing ```sudo less /var/log/syslog``` .
+`/var/log` . You may view the contents of the system log by typing `sudo less /var/log/syslog`.
 
-Web server logs are stored in ```/var/log/nginx``` , with separate log files for every site. Each site has several log files associated with it:
+Web server logs are stored in `/var/log/nginx`, with separate log files for every site. Each site has several log files associated with it:
 
 ``` [site].wpengine.dev.access.log ```
 
@@ -169,22 +157,24 @@ The following developer tools are installed by default:
 * XHProf
 * PHPUnit
 
-## Xdebug
+## Xdebug 
 
 PHP's Xdebug extension is enabled by default for the site based on PHP-FPM. Additionally, the WordPress installs have the following constants defined:
 
+```php
 define('WP_DEBUG', true);
 define('WP_DEBUG_DISPLAY', false);
 define('SCRIPT_DEBUG', true);
 define('SAVEQUERIES', true);
+```
 
 Enabling the Query Monitor WordPress plugin will allow logged-in users to view the useful debug information output by Xdebug, such as number of queries, number of objects, page render time, etc.
 
-# More Documentation Information
+## More Documentation/Information ##
 
 For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
 
-### Contributing
+## Contributing ##
 
 Help us build! We're in beta right now [and seeking help to find bugs](http://wpengine.com/mercury). If you are interested in contributing, jump in! Anyone is welcome to send pull requests. Issue reports are good too, but pull requests are much better. Here's how you do it:
 
