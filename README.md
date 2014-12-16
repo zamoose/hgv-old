@@ -15,7 +15,9 @@ We have some great [getting started videos and guides here](http://wpengine.com/
 Mercury Vagrant is a WP Engine creation in partnership with community members.
 
 **Version:** 0.1
+
 **Latest Stable:** 0.1
+
 **Web:** http://wpengine.com/mercury
 
 **Project Lead:** Tomás Puig
