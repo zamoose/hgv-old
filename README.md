@@ -62,10 +62,15 @@ admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
 If you did not install the ```vagrant-hostsupdater``` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
 
 ```192.168.150.20 wpengine.dev
+
 192.168.150.20 admin.wpengine.dev
+
 192.168.150.20 hhvm.wpengine.dev
+
 192.168.150.20 php.wpengine.dev
+
 192.168.150.20 cache.hhvm.wpengine.dev
+
 192.168.150.20 cache.php.wpengine.dev```
 
 ## WordPress Installations
@@ -86,8 +91,8 @@ hhvm.wpengine.dev is a basic WordPress install running the latest stable version
 
 The following URL's will let you view a specific page with caching turned on to test for dynamic content performance.
 
-vanish.php.wpengine.dev
-varnish.hhvm.wpengine.dev
+cache.php.wpengine.dev
+cache.hhvm.wpengine.dev
 
 ## WordPress developer tools
 
