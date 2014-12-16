@@ -135,22 +135,22 @@ Once you are connected to the HGV virtual machine, system and web server logs ca
 
 Web server logs are stored in ```/var/log/nginx```, with separate log files for every site. Each site has several log files associated with it:
 
-[site].wpengine.dev.access.log
+```[site].wpengine.dev.access.log```
 
-[site].wpengine.dev.apachestyle.access.log
+```[site].wpengine.dev.apachestyle.access.log```
 
-[site].wpengine.dev.error.log
+```[site].wpengine.dev.error.log```
 
 The first two logs track web requests to the sites, while the third log tracks errors reported, both by Nginx and by "upstream" PHP and HHVM processes.
 
-HHVM logs are in ```/var/log/hhvm```. PHP-FPM writes all of its logging information into
-```/var/log/php5-fpm.log```.
+HHVM logs are in ```/var/log/hhvm``` . PHP-FPM writes all of its logging information into
+```/var/log/php5-fpm.log``` .
 
 Sometimes, keeping tabs on a log file while hitting a site to view log messages in real-time can be helpful. To do so, run ```sudo tail -f [log file]``` from your SSH session. For example, ```sudo tail -f /var/log/nginx/php.wpengine.dev.error.log``` would give you an alwaysupdating view of the error log file for the PHP-FPM-based site.
 
 ## Database access
 
-You may easily use the phpMyAdmin installation at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/) (as listed above) in order to view and interact with the underlying database. However, if you are used to using a third-party GUI, such as [Sequel Pro](http://www.sequelpro.com/) or [MySQL Workbench](http://www.mysql.com/products/workbench/), TCP port 3306 (the MySQL/Percona port) is forwarded from the Vagrant VM to TCP port 23306 on your actual machine. You would then configure MySQL WB or Sequel Pro to connect to ```localhost:23306```.
+You may easily use the phpMyAdmin installation at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/) (as listed above) in order to view and interact with the underlying database. However, if you are used to using a third-party GUI, such as [Sequel Pro](http://www.sequelpro.com/) or [MySQL Workbench](http://www.mysql.com/products/workbench/), TCP port 3306 (the MySQL/Percona port) is forwarded from the Vagrant VM to TCP port 23306 on your actual machine. You would then configure MySQL WB or Sequel Pro to connect to ```localhost:23306``` .
 
 ## Developer tools
 
