@@ -10,19 +10,19 @@ Mercury differs from standard WordPress hosting in several ways, chief among whi
 
 We have some great [getting started videos and guides here](http://wpengine.com/mercury/how-to-start/) if you want a more guided experience.
 
+## About
+
 Mercury Vagrant is a WP Engine creation and transitioned to a community organization in 2014.
 
-Version: 0.1
-Latest Stable: 0.1
-Web: http://wpengine.com/mercury
+**Version:** 0.1
+**Latest Stable:** 0.1
+**Web:** http://wpengine.com/mercury
 
-Project Lead: Tomás Puig
+**Project Lead:** Tomás Puig
 
-Contributors: Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram
+**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram
 
-Thanks: To the [VVV](http://varyingvagrantvagrants.org/) team and others who have worked on the open source we've included.
-
-Contributing: Contributions are more than welcome. Please see our current contributing guidelines. Thanks!
+**Thanks:** To the [VVV](http://varyingvagrantvagrants.org/) team and others who have worked on the open source we've included.
 
 ## What you get ##
 
