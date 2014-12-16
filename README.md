@@ -38,14 +38,28 @@ Windows users: Be sure to add the Git executables to your path (See, e.g. this g
 ## Installation
 1. ```git clone --recursive https://github.com/wpengine/hgv.git``` to clone the latest version
 of the tool.
-2. Change into the directory hgv .
-3. Run vagrant up
+2. Change into the directory ```hgv```.
+3. Run ```vagrant up```
 
 ## Next Steps
 Once the VM is done provisioning, direct your browser to http://wpengine.dev
 You will receive fuller instructions on the use of this Vagrant environment there.
 
-## Sites
+## Once Installed These Local URL's / SITES Contain Great Documentation
+
+HGV automatically creates four sites and adds host file entries for them (if you installed the ```vagrant-hostsupdater``` plugin, that is):
+
+wpengine.dev -- General documentation and links for all of the tools
+
+hhvm.wpengine.dev -- A new WordPress installation running on HHVM
+
+php.wpengine.dev -- A new WordPress installation running on PHP-FPM (PHP 5.5)
+
+admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
+
+## More Documentation Information
+
+For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
 
 ### Contributing
 
