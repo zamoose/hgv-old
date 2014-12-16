@@ -13,10 +13,15 @@ Once Vagrant is done provisioning the VM, you will have a box running Ubuntu 14.
 
 ###containing:
 [Percona DB](http://percona.com)
+
 [PHP-FPM](http://php-fpm.org)
+
 [HHVM](http://hhvm.com)
+
 [Nginx](http://nginx.com)
+
 [Varnish](http://varnish-cache.org)
+
 [Memcached](http://memcached.org)
 
 ### Prerequisites
