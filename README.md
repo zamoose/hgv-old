@@ -49,21 +49,21 @@ No really, make sure you go to these to check them out as you work with HGV. HGV
 
 If you did not install the `vagrant-hostsupdater` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
 
-```192.168.150.20 wpengine.dev```
+`192.168.150.20 wpengine.dev`
 
-```192.168.150.20 admin.wpengine.dev```
+`192.168.150.20 admin.wpengine.dev`
 
-```192.168.150.20 hhvm.wpengine.dev```
+`192.168.150.20 hhvm.wpengine.dev`
 
-```192.168.150.20 php.wpengine.dev```
+`192.168.150.20 php.wpengine.dev`
 
-```192.168.150.20 cache.hhvm.wpengine.dev```
+`192.168.150.20 cache.hhvm.wpengine.dev`
 
-```192.168.150.20 cache.php.wpengine.dev```
+`192.168.150.20 cache.php.wpengine.dev`
 
 ## WordPress Installations
 
-There are two default ```WordPress``` installations provided. Both have an admin user wordpress with a password ```wordpress``` (so secure!) already created.
+There are two default `WordPress` installations provided. Both have an admin user wordpress with a password `wordpress` (so secure!) already created.
 
 # Using URL's to View Different Stacks Running Your Code
 
@@ -93,18 +93,18 @@ The following WordPress tools and plugins are installed on each WP site (but are
 
 ## Accessing the sites on-disk
 
-When you Users can access the WP installations directly by going to ```[HGV directory]/wpengine_data/sites/php``` and [```HGV directory]/wpengine_data/sites/php``` in the Finder (Mac)/Explorer (Windows)/filesystem navigator of choice (Linux, Free/Open/NetBSD, etc.)
+When you Users can access the WP installations directly by going to `[HGV directory]/wpengine_data/sites/php` and `[HGV directory]/wpengine_data/sites/php` in the Finder (Mac)/Explorer (Windows)/filesystem navigator of choice (Linux, Free/Open/NetBSD, etc.)
 
 ## Installing plugins and themes
 
-Installing new plugins and themes is as simple as putting themes in ```[HGV directory]/wpengine_data/sites/[hhvm|php]/wp-content/[plugins|themes]```
+Installing new plugins and themes is as simple as putting themes in `[HGV directory]/wpengine_data/sites/[hhvm|php]/wp-content/[plugins|themes]`
 
 # Admin Tools
 
 HGV contains several useful tools for gathering system state and for administering individual aspects of the system.
 
 ## Database
-phpMyAdmin is available at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/). The username is ```root``` and the password is blank.
+phpMyAdmin is available at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/). The username is `root` and the password is blank.
 
 ## Object Cache/Memcached
 
@@ -114,7 +114,7 @@ phpMemcachedAdmin is available at [admin.wpengine.dev/phpmemcachedadmin/](admin.
 
 ### Command line (CLI) access ###
 
-To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HGV directory. This will place you in the CLI on the VM.
+To connect to the Vagrant instance, type `vagrant ssh` from inside of the HGV directory. This will place you in the CLI on the VM.
 
 ### Viewing log files ###
 
@@ -123,22 +123,22 @@ Once you are connected to the HGV virtual machine, system and web server logs ca
 
 Web server logs are stored in `/var/log/nginx`, with separate log files for every site. Each site has several log files associated with it:
 
-``` [site].wpengine.dev.access.log ```
+` [site].wpengine.dev.access.log `
 
-``` [site].wpengine.dev.apachestyle.access.log ```
+` [site].wpengine.dev.apachestyle.access.log `
 
-``` [site].wpengine.dev.error.log ```
+` [site].wpengine.dev.error.log `
 
 The first two logs track web requests to the sites, while the third log tracks errors reported, both by Nginx and by "upstream" PHP and HHVM processes.
 
-HHVM logs are in ```/var/log/hhvm``` . PHP-FPM writes all of its logging information into
-```/var/log/php5-fpm.log``` .
+HHVM logs are in `/var/log/hhvm` . PHP-FPM writes all of its logging information into
+`/var/log/php5-fpm.log` .
 
-Sometimes, keeping tabs on a log file while hitting a site to view log messages in real-time can be helpful. To do so, run ```sudo tail -f [log file]``` from your SSH session. For example, ```sudo tail -f /var/log/nginx/php.wpengine.dev.error.log``` would give you an alwaysupdating view of the error log file for the PHP-FPM-based site.
+Sometimes, keeping tabs on a log file while hitting a site to view log messages in real-time can be helpful. To do so, run `sudo tail -f [log file]` from your SSH session. For example, `sudo tail -f /var/log/nginx/php.wpengine.dev.error.log` would give you an alwaysupdating view of the error log file for the PHP-FPM-based site.
 
 ## Database access
 
-You may easily use the phpMyAdmin installation at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/) (as listed above) in order to view and interact with the underlying database. However, if you are used to using a third-party GUI, such as [Sequel Pro](http://www.sequelpro.com/) or [MySQL Workbench](http://www.mysql.com/products/workbench/), TCP port 3306 (the MySQL/Percona port) is forwarded from the Vagrant VM to TCP port 23306 on your actual machine. You would then configure MySQL WB or Sequel Pro to connect to ```localhost:23306``` .
+You may easily use the phpMyAdmin installation at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/) (as listed above) in order to view and interact with the underlying database. However, if you are used to using a third-party GUI, such as [Sequel Pro](http://www.sequelpro.com/) or [MySQL Workbench](http://www.mysql.com/products/workbench/), TCP port 3306 (the MySQL/Percona port) is forwarded from the Vagrant VM to TCP port 23306 on your actual machine. You would then configure MySQL WB or Sequel Pro to connect to `localhost:23306` .
 
 ## Developer tools
 
