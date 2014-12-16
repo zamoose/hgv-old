@@ -8,6 +8,8 @@ Mercury differs from standard WordPress hosting in several ways, chief among whi
 
 > HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
 
+We have some great [getting started videos and guides here](http://wpengine.com/mercury/how-to-start/) if you want a more guided experience.
+
 ## What you get ##
 
 ### Software stack ###
