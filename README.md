@@ -49,6 +49,8 @@ You will receive fuller instructions on the use of this Vagrant environment ther
 
 HGV automatically creates four sites and adds host file entries for them (if you installed the ```vagrant-hostsupdater``` plugin, that is):
 
+No really, make sure you go to these to check them out as you work with HGV.
+
 wpengine.dev -- General documentation and links for all of the tools
 
 hhvm.wpengine.dev -- A new WordPress installation running on HHVM
@@ -56,6 +58,89 @@ hhvm.wpengine.dev -- A new WordPress installation running on HHVM
 php.wpengine.dev -- A new WordPress installation running on PHP-FPM (PHP 5.5)
 
 admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
+
+If you did not install the ```vagrant-hostsupdater``` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
+
+```192.168.150.20 wpengine.dev
+192.168.150.20 admin.wpengine.dev
+192.168.150.20 hhvm.wpengine.dev
+192.168.150.20 php.wpengine.dev
+192.168.150.20 cache.hhvm.wpengine.dev
+192.168.150.20 cache.php.wpengine.dev```
+
+## WordPress Installations
+
+There are two default ```WordPress``` installations provided. Both have an admin user wordpress with a password ```wordpress``` (so secure!) already created.
+
+# Using URL's to View Different Stacks Running Your Code
+
+## php.wpengine.dev
+
+php.wpengine.dev is a basic WordPress install running the latest stable version of WordPress on a fairly standard [LEMP](https://lemp.io/) stack consisting of Nginx, PHP-FPM, and Percona DB.
+
+## hhvm.wpengine.dev
+
+hhvm.wpengine.dev is a basic WordPress install running the latest stable version of WordPress on top of an Nginx + HHVM + Percona DB stack.
+
+## Varnish Testing
+
+The following URL's will let you view a specific page with caching turned on to test for dynamic content performance.
+
+vanish.php.wpengine.dev
+varnish.hhvm.wpengine.dev
+
+## WordPress developer tools
+
+The following WordPress tools and plugins are installed on each WP site (but are not enabled) by default. We highly recommend you try them out if you have not before:
+
+[query-monitor](https://wordpress.org/plugins/query-monitor/)
+[debug-objects](https://wordpress.org/plugins/debug-objects/)
+[debug-bar](https://wordpress.org/plugins/debug-bar/)
+[p3-profiler](https://wordpress.org/plugins/p3-profiler/)
+
+## Accessing the sites on-disk
+
+When you Users can access the WP installations directly by going to ```[HGV directory]/wpengine_data/sites/php``` and [```HGV directory]/wpengine_data/sites/php``` in the Finder (Mac)/Explorer (Windows)/filesystem navigator of choice (Linux, Free/Open/NetBSD, etc.)
+
+## Installing plugins and themes
+
+Installing new plugins and themes is as simple as putting themes in ```[HGV directory]/wpengine_data/sites/[hhvm|php]/wp-content/[plugins|themes]```
+
+# Admin Tools
+
+HGV contains several useful tools for gathering system state and for administering individual aspects of the system.
+
+## Database
+phpMyAdmin is available at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/). The username is ```root``` and the password is blank.
+
+## Object Cache/Memcached
+
+phpMemcachedAdmin is available at [admin.wpengine.dev/phpmemcachedadmin/](admin.wpengine.dev/phpmemcachedadmin/). You may use this tool to check on the status of the WordPress object [cache](http://codex.wordpress.org/Class_Reference/WP_Object_Cache).
+
+# Development and debugging
+
+## Command line (CLI) access
+
+To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HGV directory. This will place you in the CLI on the VM. For example:
+
+```hostname:hgv username$ vagrant ssh
+Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.13.0-29-generic x86_64)
+* Documentation: https://help.ubuntu.com/
+System information as of Mon Dec 15 17:30:03 UTC 2014
+System load: 0.01 Processes: 102
+Usage of /: 5.0% of 39.34GB Users logged in: 1
+Memory usage: 76% IP address for eth0: 10.0.2.15
+Swap usage: 0% IP address for eth1: 192.168.150.20
+Graph this data and manage this system at:
+https://landscape.canonical.com/
+Get cloud support with Ubuntu Advantage Cloud Guest:
+http://www.ubuntu.com/business/services/cloud
+122 packages can be updated.
+59 updates are security updates.
+Last login: Mon Dec 15 07:05:21 2014 from 10.0.2.2
+vagrant@wpengine:~$```
+
+## Viewing log files
 
 ## More Documentation Information
 
