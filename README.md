@@ -175,15 +175,3 @@ Enabling the Query Monitor WordPress plugin will allow logged-in users to view t
 ## More Documentation/Information ##
 
 For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
-
-## Contributing ##
-
-Help us build! We're in beta right now [and seeking help to find bugs](http://wpengine.com/mercury). If you are interested in contributing, jump in! Anyone is welcome to send pull requests. Issue reports are good too, but pull requests are much better. Here's how you do it:
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Write the code, **and tests to confirm it works**
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create new Pull Request
-
