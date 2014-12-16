@@ -217,7 +217,7 @@ From within the same directory you did “vagrant up” originally, type “vagr
 
 ### Can I contribute back to HGV? ###
 
-Yes! HGV is open-sourced and hosted on GitHub. We encourage all users to submit bug reports and pull requests with features they would like to see. See the contributing file.
+Yes! HGV is open-sourced and hosted on GitHub. We encourage all users to submit bug reports and pull requests with features they would like to see. See the contributing file for how to start and rules.
 
 ### What does “stdin: is not a tty” mean? ###
 
