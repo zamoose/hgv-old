@@ -89,8 +89,11 @@ cache.hhvm.wpengine.dev
 The following WordPress tools and plugins are installed on each WP site (but are not enabled) by default. We highly recommend you try them out if you have not before:
 
 [query-monitor](https://wordpress.org/plugins/query-monitor/)
+
 [debug-objects](https://wordpress.org/plugins/debug-objects/)
+
 [debug-bar](https://wordpress.org/plugins/debug-bar/)
+
 [p3-profiler](https://wordpress.org/plugins/p3-profiler/)
 
 ## Accessing the sites on-disk
