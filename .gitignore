@@ -1,0 +1,4 @@
+.vagrant/
+wpengine_data/
+hgv_data/
+.DS_Store

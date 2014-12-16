@@ -1,0 +1,59 @@
+---
+
+- name: Install nginx
+  apt: name=nginx state=present
+  notify:
+    - nginx restart
+    - update-rc nginx
+
+- name: Ensure /etc/nginx exists
+  file: path=/etc/nginx state=directory owner=root group=root mode=0755
+
+- name: Configure /etc/nginx/nginx.conf
+  template: src=etc/nginx/nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+  notify: nginx restart
+
+- name: Do nginx upstream.conf
+  template: src=etc/nginx/conf.d/upstream.conf dest=/etc/nginx/conf.d/upstream.conf owner=root group=root mode=0644
+  notify: nginx restart
+
+- name: Remove default.conf
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Set up dashboard
+  template: src=etc/nginx/sites-available/dashboard dest=/etc/nginx/sites-available/dashboard
+
+- name: Ensure main docroot exists
+  file: path=/nas/wp/www/ state=directory
+
+- name: Set up master docroot
+  file: path={{ vagrant_doc_root }} state=directory owner={{ web_user }} group={{ web_group }} mode=0775
+
+- name: Sites docroot link
+  file: dest={{ wp_doc_root }} src={{ vagrant_doc_root }} state=link
+
+- name: Copy dashboard contents
+  synchronize: src=roles/nginx/templates{{ wp_doc_root }}/dashboard/ dest={{ wp_doc_root }}/dashboard
+  tags: [ 'docs', 'dashboard' ]
+
+- name: Copy README
+  synchronize: src=/vagrant/README.md dest={{ wp_doc_root }}/dashboard/README.md
+  tags: [ 'docs', 'dashboard' ]
+
+- name: Enable dashboard
+  file: src=/etc/nginx/sites-available/dashboard dest=/etc/nginx/sites-enabled/dashboard state=link
+  notify: nginx reload
+  tags: [ 'docs', 'dashboard' ]
+
+- name: Create admin docroot
+  file: path={{ wp_doc_root }}/admin state=directory owner={{ web_user }} group={{ web_group }}
+
+- name: Set up admin
+  template: src=etc/nginx/sites-available/admin dest=/etc/nginx/sites-available/admin
+
+- name: Enable admin
+  file: src=/etc/nginx/sites-available/admin dest=/etc/nginx/sites-enabled/admin state=link
+  notify: nginx reload
+
+- name: Make sure Nginx is running
+  service: name=nginx state=started enabled=yes

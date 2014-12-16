@@ -1,0 +1,40 @@
+---
+- name: Install XHprof
+  apt: name=php5-xhprof state=present
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Enable xhprof
+  command: php5enmod xhprof
+  notify: php5-fpm restart
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Get xhprof code
+  git: repo=git://github.com/preinheimer/xhprof.git dest={{ xhprof_root }} update=no
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Setup xhprof database
+  mysql_db: name=xhprof state=present
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Create the database table
+  mysql_db: name=xhprof state=import target=/vagrant/provisioning/roles/xhprof/files/install-db.sql
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Install xhprof dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - graphviz
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Configure xhprof config.php
+  template: src=config.php dest={{ xhprof_root }}/xhprof_lib/config.php owner=root group=root mode=0644
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Configure Nginx xhprof.conf
+  template: src=etc/nginx/sites-available/xhprof.conf dest=/etc/nginx/sites-available/xhprof.conf owner=root group=root mode=0644
+  tags: [ 'profiling', 'xhprof' ]
+
+- name: Enable Nginx xhprof.conf
+  file: src=/etc/nginx/sites-available/xhprof.conf dest=/etc/nginx/sites-enabled/xhprof.conf state=link
+  notify: nginx reload
+  tags: [ 'profiling', 'xhprof' ]

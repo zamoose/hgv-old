@@ -1,0 +1,32 @@
+---
+- name: Ensure phpMyAdmin directory exists
+  file: path={{ wp_doc_root }}/admin/phpmyadmin state=directory owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin', 'phpmyadmin' ]
+
+- name: Download phpMyAdmin
+  get_url: url=http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/{{ phpmyadmin_version }}/phpMyAdmin-{{ phpmyadmin_version }}-all-languages.zip dest=/tmp/phpMyAdmin-{{ phpmyadmin_version }}.zip
+  tags: [ 'admin', 'phpmyadmin' ]
+
+- name: Extract phpMyAdmin
+  unarchive: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}.zip dest=/tmp copy=no owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin', 'phpmyadmin' ]
+
+- name: Sync phpMyAdmin
+  synchronize: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}-all-languages/ dest={{ wp_doc_root }}/admin/phpmyadmin/ group=yes owner=yes
+  tags: [ 'admin', 'phpmyadmin' ]
+
+- name: Configure phpMyAdmin
+  template: src=phpmyadminconfig.php dest={{ wp_doc_root }}/admin/phpmyadmin/config.inc.php group={{ web_group }} owner={{ web_user }}
+  tags: ['admin', 'phpmyadmin' ]
+
+- name: Ensure phpMemcachedAdmin directory exists
+  file: path={{ wp_doc_root }}/admin/phpmemcachedadmin state=directory owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin', 'phpmemcachedadmin' ]
+
+- name: Download phpMemcachedAdmin
+  get_url: url=http://phpmemcacheadmin.googlecode.com/files/phpMemcachedAdmin-{{ phpmemcachedadmin_version}}.zip dest=/tmp/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.zip
+  tags: [ 'admin', 'phpmemcachedadmin' ]
+
+- name: Extract phpMemcachedAdmin
+  unarchive: src=/tmp/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.zip dest={{ wp_doc_root }}/admin/phpmemcachedadmin copy=no owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin', 'phpmemcachedadmin' ]
