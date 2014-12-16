@@ -61,17 +61,17 @@ admin.wpengine.dev -- Useful administrative tools (phpMyAdmin, etc.)
 
 If you did not install the ```vagrant-hostsupdater``` plugin, you will need to manually [add](http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/) the following host entries to your host operating system's host files:
 
-```192.168.150.20 wpengine.dev
+```192.168.150.20 wpengine.dev```
 
-192.168.150.20 admin.wpengine.dev
+```192.168.150.20 admin.wpengine.dev```
 
-192.168.150.20 hhvm.wpengine.dev
+```192.168.150.20 hhvm.wpengine.dev```
 
-192.168.150.20 php.wpengine.dev
+```192.168.150.20 php.wpengine.dev```
 
-192.168.150.20 cache.hhvm.wpengine.dev
+```192.168.150.20 cache.hhvm.wpengine.dev```
 
-192.168.150.20 cache.php.wpengine.dev```
+```192.168.150.20 cache.php.wpengine.dev```
 
 ## WordPress Installations
 
@@ -126,28 +126,62 @@ phpMemcachedAdmin is available at [admin.wpengine.dev/phpmemcachedadmin/](admin.
 
 ## Command line (CLI) access
 
-To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HGV directory. This will place you in the CLI on the VM. For example:
-
-```hostname:hgv username$ vagrant ssh
-Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.13.0-29-generic x86_64)
-* Documentation: https://help.ubuntu.com/
-System information as of Mon Dec 15 17:30:03 UTC 2014
-System load: 0.01 Processes: 102
-Usage of /: 5.0% of 39.34GB Users logged in: 1
-Memory usage: 76% IP address for eth0: 10.0.2.15
-Swap usage: 0% IP address for eth1: 192.168.150.20
-Graph this data and manage this system at:
-https://landscape.canonical.com/
-Get cloud support with Ubuntu Advantage Cloud Guest:
-http://www.ubuntu.com/business/services/cloud
-122 packages can be updated.
-59 updates are security updates.
-Last login: Mon Dec 15 07:05:21 2014 from 10.0.2.2
-vagrant@wpengine:~$```
+To connect to the Vagrant instance, type ```vagrant ssh``` from inside of the HGV directory. This will place you in the CLI on the VM.
 
 ## Viewing log files
 
-## More Documentation Information
+Once you are connected to the HGV virtual machine, system and web server logs can be viewed in
+```/var/log``` . You may view the contents of the system log by typing ```sudo less /var/log/syslog```.
+
+Web server logs are stored in ```/var/log/nginx```, with separate log files for every site. Each site has several log files associated with it:
+
+```[site].wpengine.dev.access.log```
+
+```[site].wpengine.dev.apachestyle.access.log```
+
+```[site].wpengine.dev.error.log```
+
+The first two logs track web requests to the sites, while the third log tracks errors reported, both by Nginx and by "upstream" PHP and HHVM processes.
+
+HHVM logs are in ```/var/log/hhvm```. PHP-FPM writes all of its logging information into
+```/var/log/php5-fpm.log```.
+
+Sometimes, keeping tabs on a log file while hitting a site to view log messages in real-time can be helpful. To do so, run ```sudo tail -f [log file]``` from your SSH session. For example, ```sudo tail -f /var/log/nginx/php.wpengine.dev.error.log``` would give you an alwaysupdating view of the error log file for the PHP-FPM-based site.
+
+## Database access
+
+You may easily use the phpMyAdmin installation at [admin.wpengine.dev/phpmyadmin/](admin.wpengine.dev/phpmyadmin/) (as listed above) in order to view and interact with the underlying database. However, if you are used to using a third-party GUI, such as [Sequel Pro](http://www.sequelpro.com/) or [MySQL Workbench](http://www.mysql.com/products/workbench/), TCP port 3306 (the MySQL/Percona port) is forwarded from the Vagrant VM to TCP port 23306 on your actual machine. You would then configure MySQL WB or Sequel Pro to connect to ```localhost:23306```.
+
+## Developer tools
+
+The following developer tools are installed by default:
+
+* Git
+* Subversion
+* Curl
+* Ack
+* Autojump
+* Siege
+* Composer
+* PsySH
+* Boris
+* Xdebug
+* XHProf
+* PHPUnit
+
+## Xdebug
+
+PHP's Xdebug extension is enabled by default for the site based on PHP-FPM. Additionally, the WordPress installs have the following constants defined:
+
+code()
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', false);
+define('SCRIPT_DEBUG', true);
+define('SAVEQUERIES', true);
+
+Enabling the Query Monitor WordPress plugin will allow logged-in users to view the useful debug information output by Xdebug, such as number of queries, number of objects, page render time, etc.
+
+# More Documentation Information
 
 For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
 
