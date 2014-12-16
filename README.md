@@ -173,7 +173,6 @@ The following developer tools are installed by default:
 
 PHP's Xdebug extension is enabled by default for the site based on PHP-FPM. Additionally, the WordPress installs have the following constants defined:
 
-code()
 define('WP_DEBUG', true);
 define('WP_DEBUG_DISPLAY', false);
 define('SCRIPT_DEBUG', true);
