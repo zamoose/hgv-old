@@ -175,3 +175,25 @@ Enabling the Query Monitor WordPress plugin will allow logged-in users to view t
 ## More Documentation/Information ##
 
 For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
+
+# HGV FAQ
+
+I already use VVV, why do I need HGV?
+One of the great features of Vagrant is it allows developers to work locally on an environment that is as close as possible to their production environment.  While [VVV](https://github.com/varying-vagrant-vagrants/vvv) is an excellent WordPress development environment, it does not match any one hosting provider’s stack, it simply offers a common configuration.  HGV allows you to code locally on an environment that simulates the WPEngine Mercury platform, a highly tuned WordPress stack with forward looking technology not widely offered in the hosting ecosystem.  WPEngine has worked closely with Facebook to tune HHVM for the needs of WordPress, so you won’t get these constantly updating and improving configurations anywhere else.  
+
+What is the license for HGV?
+HGV is Open Source and [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html).
+
+How do I use my own domain?
+You can set that up manually, but currently there’s no automatic way to provision this and it is not supported in our documentation at this time.
+
+How do I remove HGV from my system?
+From within the same directory you did “vagrant up” originally, type “vagrant destroy”.  The virtual machine will be destroyed (along with anything in it, so be sure to backup your databases!) and you can safely delete the directory if you don’t need to save any files within it.  HGV is continually improving, so feel free to reinstall and “destroy” as many times as you’d like!
+
+Can I contribute back to HGV?
+Yes! HGV is open-sourced and hosted on GitHub. We encourage all users to submit bug reports and pull requests with features they would like to see. See the contributing file.
+
+What does “stdin: is not a tty” mean?
+Due to the way that Ubuntu configures its users, you may encounter this error the first time you run vagrant up or vagrant provision. It can safely be ignored and the provisioning process itself should remove the error on subsequent runs.
+
+
