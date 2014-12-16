@@ -135,11 +135,11 @@ Once you are connected to the HGV virtual machine, system and web server logs ca
 
 Web server logs are stored in ```/var/log/nginx``` , with separate log files for every site. Each site has several log files associated with it:
 
-```[site].wpengine.dev.access.log```
+``` [site].wpengine.dev.access.log ```
 
-```[site].wpengine.dev.apachestyle.access.log```
+``` [site].wpengine.dev.apachestyle.access.log ```
 
-```[site].wpengine.dev.error.log```
+``` [site].wpengine.dev.error.log ```
 
 The first two logs track web requests to the sites, while the third log tracks errors reported, both by Nginx and by "upstream" PHP and HHVM processes.
 
