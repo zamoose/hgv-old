@@ -32,8 +32,8 @@ $memcached_servers = array(
 );
 
 if( 'cache.' === substr( $_SERVER['HTTP_HOST'], 0, 6) ){
-    define('WP_SITEURL', 'http://cache.hhvm.hgv.dev');
-    define('WP_HOME', 'http://cache.hhvm.hgv.dev');
+    define('WP_SITEURL', 'http://cache.{{ enviro }}.hgv.dev');
+    define('WP_HOME', 'http://cache.{{ enviro }}.hgv.dev');
     define('WP_CACHE_KEY_SALT', 'cache_wpe_{{ enviro }}_1');
 }else{
     define('WP_CACHE_KEY_SALT', 'wpe_{{ enviro }}_1');
