@@ -48,6 +48,10 @@
 - name: Create admin docroot
   file: path={{ wp_doc_root }}/admin state=directory owner={{ web_user }} group={{ web_group }}
 
+- name: Stub out index
+  template: src=nas/wp/www/sites/admin/index.php dest={{ wp_doc_root }}/admin/index.php owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin' ]
+
 - name: Set up admin
   template: src=etc/nginx/sites-available/admin dest=/etc/nginx/sites-available/admin
 
