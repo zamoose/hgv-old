@@ -1,16 +1,16 @@
-# Contributing to HGV
+# Contributing to HGV #
 
 Contributions to the HGV project are more than welcome.
 
-## License
+## License ##
 
 By contributing code to the [HGV project](https://github.com/wpengine/hgv), you agree to license your contribution under the GPL V2 license.
 
-## Issues
+## Issues ##
 
 Open a GitHub issue for anything. Don't worry if you find yourself opening something that sounds like it could be obvious. There is no such thing.
 
-## Comments
+## Comments ##
 
 Comment on any GitHub issue, open or closed. The only guidelines here are to be friendly and welcoming. If you see that a question has been asked and you think you know the answer, don't wait!
 
@@ -20,18 +20,16 @@ Submit a pull request at any time, whether an issue has been created or not. It 
 
 We do ask that the pull request be submitted against the current **master** branch. Every effort is made to make the pull request as stable as possible before merging it in, so we aren't too worried. A list of stable releases is maintained as we go and can be used by anyone concerned by ongoing development.
 
-It may make sense that a feature branch is created so that several contributors can work together. In this case, it is possible that write access to the VVV repository will be given liberally. You may be asked to submit your pull request against a feature branch so that it can be merged and worked on with others before going in to master.
+## Code Style ##
 
-## Milestones and Labels
+### Ansible ###
 
-Some loose organization has grown around milestones and labels. We'll often have the next two versions listed for selection as a milestone. Things like bugs, enhancements, docs, etc... are listed as labels.
+The vast majority of HGV is written in and powered by Ansible. We are developing an Ansible scripting standard.
 
-## Code Style
+### Bash Scripting ###
 
-### Bash Scripting
+For any shell scripting that we do in Bash — see `bin/hgv-init.sh` — we try to follow the style provided in Google's [Shell Style Guide](http://google-styleguide.googlecode.com/svn/trunk/shell.xml).
 
-For any shell scripting that we do in Bash — see `provision.sh` — we try to follow the style provided in Google's [Shell Style Guide](http://google-styleguide.googlecode.com/svn/trunk/shell.xml).
-
-### PHP
+### PHP ###
 
 For any PHP, we try to follow the WordPress core [code standards](http://make.wordpress.org/core/handbook/coding-standards/).
