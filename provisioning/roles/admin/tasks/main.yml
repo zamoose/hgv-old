@@ -4,7 +4,7 @@
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Download phpMyAdmin
-  get_url: url=https://s3-us-west-2.amazonaws.com/com.wpengine.labs-packages/phpMyAdmin-4.3.2.zip dest=/tmp/phpMyAdmin-{{ phpmyadmin_version }}.zip
+  get_url: url=https://s3-us-west-2.amazonaws.com/com.wpengine.labs-packages/phpMyAdmin-{{ phpmyadmin_version }}.zip dest=/tmp/phpMyAdmin-{{ phpmyadmin_version }}.zip
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Extract phpMyAdmin

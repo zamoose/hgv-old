@@ -33,3 +33,5 @@
 
 - name: Fix the stdin bug, step 2
   lineinfile: dest=/root/.profile line="tty -s && mesg n"
+
+- include: swap.yml
