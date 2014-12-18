@@ -38,3 +38,7 @@
   file: src=/etc/nginx/sites-available/xhprof.conf dest=/etc/nginx/sites-enabled/xhprof.conf state=link
   notify: nginx reload
   tags: [ 'profiling', 'xhprof' ]
+
+- name: Configure ini
+  template: src=etc/php5/mods-available/xhprof.ini dest=/etc/php5/mods-available/xhprof.ini owner=root group=root mode=0644
+  tags: [ 'profiling', 'xhprof' ]
