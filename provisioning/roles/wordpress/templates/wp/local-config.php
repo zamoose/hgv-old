@@ -23,8 +23,6 @@ define('WP_DEBUG_DISPLAY', false);
 define('SCRIPT_DEBUG', true);
 define('SAVEQUERIES', true);
 
-define('WP_CACHE_KEY_SALT', 'wpe_{{ enviro }}_1');
-
 global $memecached_servers;
 
 $memcached_servers = array(
@@ -32,3 +30,11 @@ $memcached_servers = array(
         '127.0.0.1:11211'
     )
 );
+
+if( 'cache.' === substr( $_SERVER['HTTP_HOST'], 0, 6) ){
+    define('WP_SITEURL', 'http://cache.{{ enviro }}.hgv.dev');
+    define('WP_HOME', 'http://cache.{{ enviro }}.hgv.dev');
+    define('WP_CACHE_KEY_SALT', 'cache_wpe_{{ enviro }}_1');
+}else{
+    define('WP_CACHE_KEY_SALT', 'wpe_{{ enviro }}_1');
+}
