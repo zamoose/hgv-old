@@ -30,3 +30,7 @@
 - name: Extract phpMemcachedAdmin
   unarchive: src=/tmp/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.zip dest={{ wp_doc_root }}/admin/phpmemcachedadmin copy=no owner={{ web_user }} group={{ web_group }}
   tags: [ 'admin', 'phpmemcachedadmin' ]
+
+- name: Install Mailcatcher
+  gem: name=mailcatcher state=present
+  tags: [ 'admin', 'mailcatcher' ]

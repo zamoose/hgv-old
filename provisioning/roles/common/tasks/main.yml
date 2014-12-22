@@ -15,6 +15,9 @@
     - subversion
     - autojump
     - siege
+    - ruby-dev
+    - build-essential
+    - libsqlite3-dev
 
 - name: Get Composer
   get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=0755 validate_certs=no
