@@ -32,7 +32,11 @@
   tags: [ 'admin', 'phpmemcachedadmin' ]
 
 - name: Install Mailcatcher
-  gem: name=mailcatcher state=present
+  command: bash -lc "/usr/bin/gem install mailcatcher"
+  tags: [ 'admin', 'mailcatcher' ]
+
+- name: Set up Mailcatcher VHost
+  template: src=etc/nginx/conf.d/mail.conf dest=/etc/nginx/conf.d/mail.conf owner=root group=root mode=0644
   tags: [ 'admin', 'mailcatcher' ]
 
 - name: Ensure Pimp My Log directory exists
