@@ -52,6 +52,9 @@ echo "Validating Ansible hostfile permissions."
 echo
 chmod 644 /vagrant/provisioning/hosts
 
+# More continuous scroll of the ansible standard output buffer
+export PYTHONUNBUFFERED=1
+
 # $ANS_BIN /vagrant/provisioning/playbook.yml -i /vagrant/provisioning/hosts
 $ANS_BIN /vagrant/provisioning/playbook.yml -i'127.0.0.1,'
 
