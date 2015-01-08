@@ -8,7 +8,7 @@ By contributing code to the [HGV project](https://github.com/wpengine/hgv), you 
 
 ## Issues ##
 
-Open a GitHub issue for anything. Don't worry if you find yourself opening something that sounds like it could be obvious. Someone else might be wondering the same thing.
+Open a GitHub issue for anything. Don't worry if you find yourself opening something that sounds like it could be obvious. Someone else might have the same question.
 
 ## Comments ##
 
