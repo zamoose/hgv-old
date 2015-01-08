@@ -12,7 +12,7 @@ Open a GitHub issue for anything. Don't worry if you find yourself opening somet
 
 ## Comments ##
 
-Comment on any GitHub issue, open or closed. The only guidelines here are to be friendly and welcoming. If you see that a question has been asked and you think you know the answer, don't wait!
+Comment on any GitHub issue, open or closed. The only guidelines here are to be friendly and welcoming. If you see that a question has been asked and you think you know the answer, feel free to respond. No need to wait!
 
 ## Pull Requests
 
