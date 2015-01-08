@@ -22,7 +22,7 @@ Mercury Vagrant is a WP Engine creation in partnership with community members.
 
 **Project Lead:** Tomás Puig
 
-**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram
+**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram, Ryan Oeltjenbruns, Lowell Vaughn
 
 **Thanks:** To the [VVV](http://varyingvagrantvagrants.org/) team and others who have worked on the open source we've included.
 
