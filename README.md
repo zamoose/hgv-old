@@ -208,7 +208,7 @@ For detailed how to install guides per OS and other debugging information please
 
 ### I already use VVV, why do I need HGV? ###
 
-One of the great features of Vagrant is it allows developers to work locally on an environment that is as close as possible to their production environment.  While [VVV](https://github.com/varying-vagrant-vagrants/vvv) is an excellent WordPress development environment, it does not match any one hosting provider’s stack, it simply offers a common configuration.  HGV allows you to code locally on an environment that simulates the WPEngine Mercury platform, a highly tuned WordPress stack with forward looking technology not widely offered in the hosting ecosystem.  WPEngine has worked closely with Facebook to tune HHVM for the needs of WordPress, so you won’t get these constantly updating and improving configurations anywhere else.  
+One of the great features of Vagrant is it allows developers to work locally on an environment that is as close as possible to their production environment.  While [VVV](https://github.com/varying-vagrant-vagrants/vvv) is an excellent WordPress development environment, it does not match any one hosting provider’s stack, it simply offers a common configuration.  HGV allows you to code locally on an environment that simulates the WP Engine Mercury platform, a highly tuned WordPress stack with forward looking technology not widely offered in the hosting ecosystem.  WP Engine has worked closely with Facebook to tune HHVM for the needs of WordPress, so you won’t get these constantly updating and improving configurations anywhere else.  
 
 ### What is the license for HGV? ###
 
