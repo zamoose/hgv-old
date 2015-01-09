@@ -8,11 +8,11 @@ By contributing code to the [HGV project](https://github.com/wpengine/hgv), you 
 
 ## Issues ##
 
-Open a GitHub issue for anything. Don't worry if you find yourself opening something that sounds like it could be obvious. There is no such thing.
+Open a GitHub issue for anything. Don't worry if you find yourself opening something that sounds like it could be obvious. Someone else might have the same question.
 
 ## Comments ##
 
-Comment on any GitHub issue, open or closed. The only guidelines here are to be friendly and welcoming. If you see that a question has been asked and you think you know the answer, don't wait!
+Comment on any GitHub issue, open or closed. The only guidelines here are to be friendly and welcoming. If you see that a question has been asked and you think you know the answer, feel free to respond. No need to wait!
 
 ## Pull Requests
 

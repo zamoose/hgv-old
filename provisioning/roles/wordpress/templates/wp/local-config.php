@@ -31,7 +31,7 @@ $memcached_servers = array(
     )
 );
 
-if( 'cache.' === substr( $_SERVER['HTTP_HOST'], 0, 6) ){
+if( isset($_SERVER['HTTP_HOST']) && 'cache.' === substr( $_SERVER['HTTP_HOST'], 0, 6) ){
     define('WP_SITEURL', 'http://cache.{{ enviro }}.hgv.dev');
     define('WP_HOME', 'http://cache.{{ enviro }}.hgv.dev');
     define('WP_CACHE_KEY_SALT', 'cache_wpe_{{ enviro }}_1');

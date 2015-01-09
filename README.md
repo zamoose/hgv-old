@@ -1,6 +1,6 @@
 # Mercury Vagrant (HGV) #
 
-This project is meant to allow people in the WordPress community run a single Vagrant for developing, debugging, and deploying HHVM based code. We have also added standard PHP to test against so that this project is useful for more standard development as well.
+This project is meant to allow people in the WordPress community to run a single Vagrant for developing, debugging, and deploying HHVM based code. We have also added standard PHP to test against so that this project is useful for more standard development as well.
 
 The project is also intended as a tool for allowing WP Engine users to test their code prior to actual deployment on WP Engine "Mercury" infrastructure. This is not intended as an exact replica of WP Engine's infrastructure, but is instead a "simulator" of the conditions and software stack on WPE's Mercury platform, allowing you to develop and test your code with an end goal of stability and compatibility with Mercury.
 
@@ -22,7 +22,7 @@ Mercury Vagrant is a WP Engine creation in partnership with community members.
 
 **Project Lead:** Tomás Puig
 
-**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram
+**Contributors:** Mark Kelnar, Doug Stewart, Zach Brown, RC Johnson, Jason Cohen, Kailey Lampert, Cameron Benedict, and Grant Landram, Ryan Oeltjenbruns, Lowell Vaughn
 
 **Thanks:** To the [VVV](http://varyingvagrantvagrants.org/) team and others who have worked on the open source we've included.
 
@@ -208,7 +208,7 @@ For detailed how to install guides per OS and other debugging information please
 
 ### I already use VVV, why do I need HGV? ###
 
-One of the great features of Vagrant is it allows developers to work locally on an environment that is as close as possible to their production environment.  While [VVV](https://github.com/varying-vagrant-vagrants/vvv) is an excellent WordPress development environment, it does not match any one hosting provider’s stack, it simply offers a common configuration.  HGV allows you to code locally on an environment that simulates the WPEngine Mercury platform, a highly tuned WordPress stack with forward looking technology not widely offered in the hosting ecosystem.  WPEngine has worked closely with Facebook to tune HHVM for the needs of WordPress, so you won’t get these constantly updating and improving configurations anywhere else.  
+One of the great features of Vagrant is it allows developers to work locally on an environment that is as close as possible to their production environment.  While [VVV](https://github.com/varying-vagrant-vagrants/vvv) is an excellent WordPress development environment, it does not match any one hosting provider’s stack, it simply offers a common configuration.  HGV allows you to code locally on an environment that simulates the WP Engine Mercury platform, a highly tuned WordPress stack with forward looking technology not widely offered in the hosting ecosystem.  WP Engine has worked closely with Facebook to tune HHVM for the needs of WordPress, so you won’t get these constantly updating and improving configurations anywhere else.  
 
 ### What is the license for HGV? ###
 
