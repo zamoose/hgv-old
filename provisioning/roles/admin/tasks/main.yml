@@ -12,7 +12,7 @@
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Sync phpMyAdmin
-  synchronize: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}-all-languages/ dest={{ wp_doc_root }}/admin/phpmyadmin/ group=yes owner=yes
+  synchronize: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}/ dest={{ wp_doc_root }}/admin/phpmyadmin/ group=yes owner=yes
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Configure phpMyAdmin
