@@ -4,7 +4,7 @@ Contributions to the HGV project are more than welcome.
 
 ## License ##
 
-By contributing code to the [HGV project](https://github.com/wpengine/hgv), you agree to license your contribution under the GPL V2 license.
+By contributing code to the [HGV project](https://github.com/wpengine/hgv), you agree to license your contribution under the GPL V2 license. Further, with respect to any copyrights in your contribution: 1. you hereby assign to us joint ownership, and to the extent such assignment is invalid, ineffective or unenforceable, you hereby grant to us a perpetual, fully-subliceasable, irrevocable, non-exclusive, worldwide, no-charge, royalty-free, unrestricted license to exercise all rights under those copyrights; 2. we that each of us can act as if we are the sole owner of such copyright, and if one of us makes a derivative work of your contribution, the one who makes the derivative work will be the sole owner; and, 3. we agree that each party may register a copyright in your contribution and exercise all ownership rights associated with it. The rights that you grant us are effective on the date you first submit a contribution. 
 
 ## Issues ##
 
