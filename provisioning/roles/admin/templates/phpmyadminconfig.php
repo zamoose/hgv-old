@@ -152,6 +152,7 @@ $cfg['SaveDir'] = '';
 * default = 'ask'
 */
 //$cfg['SendErrorReports'] = 'ask';
+$cfg['SendErrorReports'] = 'never';
 
 /*
 * You can find more configuration options in the documentation
