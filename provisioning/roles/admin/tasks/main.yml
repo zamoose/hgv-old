@@ -30,3 +30,15 @@
 - name: Extract phpMemcachedAdmin
   unarchive: src=/tmp/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.zip dest={{ wp_doc_root }}/admin/phpmemcachedadmin copy=no owner={{ web_user }} group={{ web_group }}
   tags: [ 'admin', 'phpmemcachedadmin' ]
+
+- name: Ensure Pimp My Log directory exists
+  file: path={{ wp_doc_root }}/admin/logs state=directory owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin', 'pimpmylog' ]
+
+- name: Download Pimp My Log
+  git: repo=git://github.com/potsky/PimpMyLog.git dest={{ wp_doc_root }}/admin/logs update=no
+  tags: [ 'admin', 'pimpmylog' ]
+
+- name: Configure Pimp My Log
+  template: src=pimpmylog.config.user.php dest={{ wp_doc_root }}/admin/logs/config.user.php group={{ web_group }} owner={{ web_user }} mode=0444
+  tags: [ 'admin', 'pimpmylog' ]
