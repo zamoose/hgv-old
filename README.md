@@ -200,6 +200,9 @@ phpMyAdmin is available at [admin.hgv.dev/phpmyadmin/](admin.hgv.dev/phpmyadmin/
 
 phpMemcachedAdmin is available at [admin.hgv.dev/phpmemcachedadmin/](admin.hgv.dev/phpmemcachedadmin/). You may use this tool to check on the status of the WordPress object [cache](http://codex.wordpress.org/Class_Reference/WP_Object_Cache).
 
+### Log Viewing ###
+PML is available at [admin.hgv.dev/logs](http://admin.hgv.dev/logs). You may use this tool to quickly view the most recent web server access and error logs for the various sites automatically created by HGV.
+
 ## More Documentation/Information ##
 
 For detailed how to install guides per OS and other debugging information please see the [wiki here on github](https://github.com/wpengine/hgv/wiki).
