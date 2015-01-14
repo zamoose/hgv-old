@@ -1,4 +1,18 @@
 ---
+- name: Create admin docroot
+  file: path={{ wp_doc_root }}/admin state=directory owner={{ web_user }} group={{ web_group }}
+
+- name: Stub out index
+  template: src=index.php dest={{ wp_doc_root }}/admin/index.php owner={{ web_user }} group={{ web_group }}
+  tags: [ 'admin' ]
+
+- name: Set up admin
+  template: src=etc/nginx/sites-available/admin dest=/etc/nginx/sites-available/admin
+
+- name: Enable admin
+  file: src=/etc/nginx/sites-available/admin dest=/etc/nginx/sites-enabled/admin state=link
+  notify: nginx reload
+
 - name: Ensure phpMyAdmin directory exists
   file: path={{ wp_doc_root }}/admin/phpmyadmin state=directory owner={{ web_user }} group={{ web_group }}
   tags: [ 'admin', 'phpmyadmin' ]
@@ -12,7 +26,7 @@
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Sync phpMyAdmin
-  synchronize: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}-all-languages/ dest={{ wp_doc_root }}/admin/phpmyadmin/ group=yes owner=yes
+  synchronize: src=/tmp/phpMyAdmin-{{ phpmyadmin_version }}/ dest={{ wp_doc_root }}/admin/phpmyadmin/ group=yes owner=yes
   tags: [ 'admin', 'phpmyadmin' ]
 
 - name: Configure phpMyAdmin
@@ -31,18 +45,14 @@
   unarchive: src=/tmp/phpMemcachedAdmin-{{ phpmemcachedadmin_version }}.zip dest={{ wp_doc_root }}/admin/phpmemcachedadmin copy=no owner={{ web_user }} group={{ web_group }}
   tags: [ 'admin', 'phpmemcachedadmin' ]
 
-- name: Install Mailcatcher
-  command: bash -lc "/usr/bin/gem install mailcatcher"
-  tags: [ 'admin', 'mailcatcher' ]
-
-- name: Set up Mailcatcher VHost
-  template: src=etc/nginx/conf.d/mail.conf dest=/etc/nginx/conf.d/mail.conf owner=root group=root mode=0644
-  tags: [ 'admin', 'mailcatcher' ]
-
-- name: Ensure Pimp My Log directory exists
-  file: path={{ wp_doc_root }}/admin/pimpmylog state=directory owner={{ web_user }} group={{ web_group }}
+- name: Ensure PML directory exists
+  file: path={{ wp_doc_root }}/admin/logs state=directory owner={{ web_user }} group={{ web_group }}
   tags: [ 'admin', 'pimpmylog' ]
 
-- name: Download Pimp My Log
-  git: repo=git://github.com/potsky/PimpMyLog.git dest={{ wp_doc_root }}/admin/pimpmylog update=no
+- name: Download PML
+  git: repo=git://github.com/potsky/PimpMyLog.git dest={{ wp_doc_root }}/admin/logs update=no
+  tags: [ 'admin', 'pimpmylog' ]
+
+- name: Configure PML
+  template: src=pimpmylog.config.user.php dest={{ wp_doc_root }}/admin/logs/config.user.php group={{ web_group }} owner={{ web_user }} mode=0444
   tags: [ 'admin', 'pimpmylog' ]

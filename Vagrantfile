@@ -18,24 +18,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     config.vm.provider "virtualbox" do |vb|
-       vb.customize ["modifyvm", :id, "--memory", "1024"]
-       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-       vb.name = vagrant_name
+        vb.customize ["modifyvm", :id, "--memory", "1024"]
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.name = vagrant_name
     end
 
     config.vm.synced_folder "./hgv_data", "/hgv_data", owner: "www-data", group: "www-data", create: "true"
 
     if defined? VagrantPlugins::HostsUpdater
-      config.hostsupdater.aliases = [
-        "hhvm.hgv.dev",
-        "php.hgv.dev",
-        "cache.hhvm.hgv.dev",
-        "cache.php.hgv.dev",
-        "admin.hgv.dev",
-        "xhprof.hgv.dev",
-        "mail.hgv.dev"
-      ]
+        config.hostsupdater.aliases = [
+            "hhvm.hgv.dev",
+            "php.hgv.dev",
+            "cache.hhvm.hgv.dev",
+            "cache.php.hgv.dev",
+            "admin.hgv.dev",
+            "xhprof.hgv.dev"
+        ]
     end
 
     config.vm.provision "shell" do |s|

@@ -1,7 +1,7 @@
 ---
 - name: Install Nginx GPG key
   apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
-  
+
 - name: Enable Nginx stable repo
   apt_repository: repo='deb http://nginx.org/packages/ubuntu {{ ansible_lsb.codename }} nginx' state=present update_cache=yes
 
@@ -52,20 +52,6 @@
   file: src=/etc/nginx/sites-available/dashboard dest=/etc/nginx/sites-enabled/dashboard state=link
   notify: nginx reload
   tags: [ 'docs', 'dashboard' ]
-
-- name: Create admin docroot
-  file: path={{ wp_doc_root }}/admin state=directory owner={{ web_user }} group={{ web_group }}
-
-- name: Stub out index
-  template: src=nas/wp/www/sites/admin/index.php dest={{ wp_doc_root }}/admin/index.php owner={{ web_user }} group={{ web_group }}
-  tags: [ 'admin' ]
-
-- name: Set up admin
-  template: src=etc/nginx/sites-available/admin dest=/etc/nginx/sites-available/admin
-
-- name: Enable admin
-  file: src=/etc/nginx/sites-available/admin dest=/etc/nginx/sites-enabled/admin state=link
-  notify: nginx reload
 
 - name: Make sure Nginx is running
   service: name=nginx state=started enabled=yes
